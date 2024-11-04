@@ -47,4 +47,4 @@ if __name__ == "__main__":
     try:
         realtime_stt()
     except KeyboardInterrupt:
-        print("keyboardinterrupt")
+        print("KeyboardInterrupt")

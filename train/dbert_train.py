@@ -70,5 +70,6 @@ class DBertTrainer:
         )
         trainer.train()
         real_path = "./command_chat_classifier"
+        # real_path = self.output_dir
         model.save_pretrained(real_path)
         tokenizer.save_pretrained(real_path)
