@@ -39,9 +39,9 @@ def realtime_stt():
 if __name__ == "__main__":
     # training()
     # start_stt_debug_process()
-    try:
-        while True:
-            start_nlp_debug_process()
-    except KeyboardInterrupt:
-        print("keyboardinterrupt")
-    #realtime_stt()
+    # try:
+    #     while True:
+    #         start_nlp_debug_process()
+    # except KeyboardInterrupt:
+    #     print("keyboardinterrupt")
+    realtime_stt()

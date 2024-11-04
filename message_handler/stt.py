@@ -1,11 +1,15 @@
 import speech_recognition as sr
 
+# mic_list = sr.Microphone.list_microphone_names()
+# for index, name in enumerate(mic_list):
+#     print(f"Index: {index}, Microphone name: {name}")
+    
 # Function to transcribe audio file
-
 class STT:
     def __init__(self):
+        selected_index = 1
         self.recognizer = sr.Recognizer()
-        self.mic = sr.Microphone()
+        self.mic = sr.Microphone(device_index=selected_index)
     
     def realtime_stt_process(self, text_queue):
         print("Starting real-time STT. Speak into the microphone...")
