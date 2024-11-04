@@ -43,7 +43,12 @@ class SimpleNLP:
             
             message_type = self.classify_message(text)
             
-            if message_type == "command":
-                print(f"Command: {text}")
-            else:
-                print(f"Chit-chat: {text}")
+            match(message_type):
+                case "command":
+                    print(f"'{text}' is command.")
+                case "chat":
+                    print(f"'{text}' is chit-chat.")
+                case "non-sense":
+                    print(f"'{text}' is non-sense.")
+                case _:
+                    print("Unknown message type.")

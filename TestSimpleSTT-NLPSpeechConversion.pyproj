@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>4e087457-12aa-4beb-9c76-600de95964ff</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>TestSimpleSTT_NLPSpeechConversion.py</StartupFile>
+    <StartupFile>Entry.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -25,7 +25,7 @@
   <ItemGroup>
     <Compile Include="message_handler\simpleNLP.py" />
     <Compile Include="message_handler\stt.py" />
-    <Compile Include="TestSimpleSTT_NLPSpeechConversion.py" />
+    <Compile Include="Entry.py" />
     <Compile Include="tests\transcribe_test.py" />
     <Compile Include="train\dbert_train.py" />
   </ItemGroup>

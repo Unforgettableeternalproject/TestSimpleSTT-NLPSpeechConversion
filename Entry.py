@@ -44,4 +44,7 @@ if __name__ == "__main__":
     #         start_nlp_debug_process()
     # except KeyboardInterrupt:
     #     print("keyboardinterrupt")
-    realtime_stt()
+    try:
+        realtime_stt()
+    except KeyboardInterrupt:
+        print("keyboardinterrupt")

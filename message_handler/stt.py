@@ -27,10 +27,10 @@ class STT:
             
                 print("Transcribing...")
                 text = self.recognizer.recognize_google(audio)
+                text_queue.put(text)
                 print(f"Transcribed Text: {text}")
 
                 # Place the text in the queue for NLP processing
-                text_queue.put(text)
         
             except sr.UnknownValueError:
                 print("Could not understand audio. Please try again.")
