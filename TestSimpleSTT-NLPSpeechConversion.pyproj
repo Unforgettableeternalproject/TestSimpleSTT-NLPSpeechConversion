@@ -26,10 +26,12 @@
     <Compile Include="message_handler\simpleNLP.py" />
     <Compile Include="message_handler\stt.py" />
     <Compile Include="TestSimpleSTT_NLPSpeechConversion.py" />
+    <Compile Include="tests\transcribe_test.py" />
     <Compile Include="train\dbert_train.py" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="message_handler\" />
+    <Folder Include="tests\" />
     <Folder Include="train\" />
   </ItemGroup>
   <ItemGroup>

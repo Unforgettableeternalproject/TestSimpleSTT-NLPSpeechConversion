@@ -13,17 +13,37 @@ class SimpleNLP:
         inputs = self.tokenizer(text, return_tensors="pt", truncation=True)
         outputs = self.model(**inputs)
         predictions = torch.argmax(outputs.logits, dim=1)
-        return "command" if predictions[0] == 0 else "chat"
-
-    def handle_audio(self, file_path):
-        # Step 1: Transcribe audio
-        text = self.stt.transcribe_audio(file_path)
         
-        # Step 2: Classify message as command or chat
+        # print(predictions.item())
+        label_mapping = {0: "command", 1: "chat", 2: "non-sense"}
+        return label_mapping[predictions.item()]
+
+    def debug_nlp(self, file_path=None):
+        if(file_path is not None): text = self.stt.debug_stt(file_path)
+        else: text = input("Enter text: ")
+        
         message_type = self.classify_message(text)
         
-        # Step 3: Take action based on message type
-        if message_type == "command":
-            return f"Executing command based on: '{text}'"
-        else:
-            return f"Chat response: '{text}'"
+        match(message_type):
+            case "command":
+                return f"'{text}' is command."
+            case "chat":
+                return f"'{text}' is chit-chat."
+            case "non-sense":
+                return f"'{text}' is non-sense."
+            case _:
+                return "Unknown message type."
+        
+    def process_transcriptions(self, text_queue):
+        while True:
+            text = text_queue.get()
+            
+            if text is None:
+                break
+            
+            message_type = self.classify_message(text)
+            
+            if message_type == "command":
+                print(f"Command: {text}")
+            else:
+                print(f"Chit-chat: {text}")
